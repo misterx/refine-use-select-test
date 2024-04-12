@@ -4,7 +4,7 @@ export const ResourceSelect: React.FC<{resource:string}> = ({resource}) => {
   const {selectProps} = useSelect({
     resource,
     queryOptions:{
-      staleTime: Infinity,
+      staleTime: 1000,
     },
   });
   return <Select {...selectProps}/>;
