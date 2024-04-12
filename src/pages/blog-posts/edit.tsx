@@ -2,7 +2,7 @@ import { Edit, useForm, useSelect } from "@refinedev/antd";
 import MDEditor from "@uiw/react-md-editor";
 import { Form, Input, Select } from "antd";
 import {
-    ResourceSelect
+    ResourceSelect,ResourceUseQuerySelect
 } from "../../components/ResourceSelect";
 
 export const BlogPostEdit = () => {
@@ -45,6 +45,18 @@ export const BlogPostEdit = () => {
         >
           <ResourceSelect resource={'categories'} />
         </Form.Item>
+          <Form.Item
+              label={"Test users"}
+              name={["category", "id"]}
+              initialValue={formProps?.initialValues?.category?.id}
+              rules={[
+                  {
+                      required: true,
+                  },
+              ]}
+          >
+              <ResourceUseQuerySelect resource={'users'} />
+          </Form.Item>
         <Form.Item
           label={"Status"}
           name={["status"]}
